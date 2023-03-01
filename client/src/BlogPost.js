@@ -2,31 +2,54 @@ import React, { useEffect, useState } from 'react';
 
 function BlogPost() {
 
-    const [textContent, setTextContent] = useState('');
+  const [textContent, setTextContent] = useState('');
 
-    useEffect(() => {
-        const div = document.querySelector('#blog-post');
-        if (div) {
-        setTextContent(extractTextContentFromDiv(div));
-        }
-        console.log(textContent)
-    }, [textContent]);
-
-
-    function extractTextContentFromDiv(div) {
-        let textContent = "";
-        for (let i = 0; i < div.childNodes.length; i++) {
-        const child = div.childNodes[i];
-        console.log(child.nodeType === 1)
-        if (child.nodeType === 1) {
-            textContent += child.textContent;
-        } else if (child.nodeType === 1 && child.tagName.toLowerCase() === 'div') {
-            textContent += extractTextContentFromDiv(child);
-        }
-        }
-        //console.log(textContent)
-        return textContent;
+  useEffect(() => {
+    const div = document.querySelector('#blog-post');
+    if (div) {
+      setTextContent(extractTextContentFromDiv(div));
     }
+  }, []);
+
+  useEffect(() => {
+    if (textContent.length) {
+      sendPostsToEndPoint(textContent);
+    }
+  }, [textContent]);
+
+  function sendPostsToEndPoint(text) {
+    const name = 'War in Ukraine';
+    const data = { name: name, text: text };
+
+    fetch("http://localhost:5000/api/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+
+  function extractTextContentFromDiv(div) {
+    let textContent = "";
+    for (let i = 0; i < div.childNodes.length; i++) {
+      const child = div.childNodes[i];
+      if (child.nodeType === 1) {
+        textContent += child.textContent;
+      } else if (child.nodeType === 1 && child.tagName.toLowerCase() === 'div') {
+        textContent += extractTextContentFromDiv(child);
+      }
+    }
+    return textContent;
+  }
+
 
 
   return (

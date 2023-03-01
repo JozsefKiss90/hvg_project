@@ -1,10 +1,28 @@
 const express = require('express')
+const mongoose = require('mongoose')
 require('dotenv').config()
+const PostRoute = require('./routes/postRoute');
+const cors = require('cors')
 
 const {Configuration, OpenAi, OpenAIApi} = require('openai')
 const app = express()
 
 app.use(express.json())
+app.use(cors()) 
+
+const connectToDb = (dbName) => {
+    mongoose.connect(`mongodb://localhost/${dbName}`)
+        .catch(error => console.error(error))
+        .then(r => console.log(`Connected to DB: ${r.connection.name}`))
+}
+
+async function main() {
+    await connectToDb('blogs')
+  }
+  
+main()
+
+app.use('/api/posts', PostRoute)
 
 const configuration =new Configuration({
     apiKey: process.env.OPEN_AI_KEY
