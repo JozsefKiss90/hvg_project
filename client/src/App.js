@@ -1,7 +1,8 @@
 import './App.css';
 import BlogPost from './BlogPost';
 import './App.css';
-
+import TextToSpeech from './TextToSpeech';
+import AudioPlayer from './AudioPlayer'
 function App() {
   return (
     <div>
@@ -26,6 +27,9 @@ function App() {
           </ul>
           </nav>
       </header>
+      <div>
+      <AudioPlayer audioId={'6403a0d54541a730c423076a'}/>
+      </div>
       <main>
         <article>
           <h2>Ukrainian War: Latest Updates</h2>
