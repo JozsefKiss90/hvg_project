@@ -3,37 +3,21 @@ import BlogPost from './BlogPost';
 import './App.css';
 import TextToSpeech from './TextToSpeech';
 import AudioPlayer from './AudioPlayer'
+import Navbar from './Navbar';
+import {Link} from "react-router-dom";
+
 function App() {
   return (
     <div>
-      <header>
-        <h1>BBC News</h1>
-        <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/world">World</a></li>
-            <li><a href="/uk">UK</a></li>
-            <li><a href="/business">Business</a></li>
-            <li><a href="/politics">Politics</a></li>
-            <li><a href="/health">Health</a></li>
-            <li><a href="/education">Education</a></li>
-            <li><a href="/science">Science</a></li>
-            <li><a href="/technology">Technology</a></li>
-            <li><a href="/entertainment">Entertainment</a></li>
-            <li><a href="/sports">Sports</a></li>
-          </ul>
-          <ul>
-          <li><a href="/search">Search</a></li>
-          </ul>
-          </nav>
-      </header>
-      <div>
-      <AudioPlayer audioId={'6403a0d54541a730c423076a'}/>
-      </div>
+      <Navbar/>
       <main>
         <article>
-          <h2>Ukrainian War: Latest Updates</h2>
-          <BlogPost />
+          <Link to="/post">
+            <h2>Ukrainian War: Latest Updates</h2>
+          </Link>
+          <img src="/war.jpg" alt="" />
+          <AudioPlayer audioId={'6403a0d54541a730c423076a'}/>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui vitae dolores sint vel nam. Amet dolor similique, repudiandae fugit aperiam alias consectetur eligendi aliquid quasi dignissimos sit, sunt nesciunt nostrum?</p>
         </article>
       </main>
       <footer>
