@@ -1,11 +1,11 @@
 import React from 'react';
-import {BrowserRouter, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function Navbar() {
   return (
    <div>
      <header>
-      <h1>BBC News</h1>
+      <h1>CBB News</h1>
       <nav>
         <ul>
           <li>
