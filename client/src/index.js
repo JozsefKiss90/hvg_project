@@ -8,6 +8,7 @@ import {
   Route, 
 } from "react-router-dom"; 
 import BlogPost from './BlogPost';
+import BlogPost2 from './BlogPost2';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -15,7 +16,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/post" element={<BlogPost />} />
-    
+      <Route path="/post2" element={<BlogPost2 />} />
     </Routes>
   </BrowserRouter>
 </React.StrictMode>

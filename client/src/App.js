@@ -29,20 +29,17 @@ function App() {
     <div>
       <Navbar/>
       <main>
-        <article> 
-          <Link to="/post">
-            <h2>Ukrainian War: Latest Updates</h2>
-          </Link>
-          <img src="/war.jpg" alt="" />
-          <AudioPlayer audioId={'6403a0d54541a730c423076a'}/>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui vitae dolores sint vel nam. Amet dolor similique, repudiandae fugit aperiam alias consectetur eligendi aliquid quasi dignissimos sit, sunt nesciunt nostrum?</p>
-        </article>
           {
-            postContents.length ? 
-              postContents.map(post => {
-              return  <article>
-                        <BlogPost key={post.id} content={post.text}/>
-                      </article>
+            (postContents.length && audios!=undefined) ? 
+              postContents.map((post, i) => {
+              return <article>
+                  <Link to="/post2" state={{ content : post.text }}>
+                    <h2>Ukrainian War: Latest Updates</h2>
+                  </Link>  
+                  <img src="/war.jpg" alt="" />
+                  <AudioPlayer audioId={audios[i]._id}/>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui vitae dolores sint vel nam. Amet dolor similique, repudiandae fugit aperiam alias consectetur eligendi aliquid quasi dignissimos sit, sunt nesciunt nostrum?</p>
+                </article>
               })
              : 'loading'
           } 
