@@ -66,8 +66,8 @@ function AudioPlayer({ audioId }) {
     <div style={containerStyle}>
         <img src="/war.jpg" alt="Your Image" style={imageStyle} />
         <div style={playerStyle}>
-            <img src={iconUrl} alt="Audio Icon" style={{ width: '35px', height: '35px', padding: '5px' }} onClick={handleAudioClick} />
-            <img src="/stop.png" alt="Stop Icon" style={{ width: '35px', height: '35px', padding: '5px'  }} onClick={handleRestartClick} />
+            <img src={iconUrl} alt="Audio Icon" style={{ width: '30px', height: '30px' }} onClick={handleAudioClick} />
+            <img src="/stop.png" alt="Stop Icon" style={{ width: '30px', height: '30px' }} onClick={handleRestartClick} />
             <audio ref={audioRef} src={audioUrl} />
         </div>
     </div>
