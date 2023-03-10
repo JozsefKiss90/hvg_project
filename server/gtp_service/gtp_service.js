@@ -1,1 +1,0 @@
-const {Configuration, OpenAi, OpenAIApi} = require('openai')

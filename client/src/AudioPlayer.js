@@ -6,7 +6,6 @@ function AudioPlayer({ audioId }) {
   const [iconUrl, setIconUrl] = useState('/audio.png');
   const audioRef = useRef(null);
 
-  // Fetch the audio URL from the backend
   useEffect(() => {
     fetch(`http://localhost:5000/api/audio/${audioId}`)
       .then(response => response.blob())

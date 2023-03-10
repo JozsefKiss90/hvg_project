@@ -13,7 +13,7 @@ const client = new TextToSpeechClient({
 
 // Connect to the MongoDB database
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(process.env.MONGO_ATLAS_URL)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error(err));
 

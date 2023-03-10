@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const titles = require("./titles.json");
 const blogs = require("./blogs.json");
 const SummaryModel = require("../models/summaries.model");
-const {Configuration, OpenAi, OpenAIApi} = require('openai')
-const mongoUrl = process.env.MONGO_URL;
+const {Configuration, OpenAIApi} = require('openai')
+const mongoUrl = process.env.MONGO_ATLAS_URL;
 
 if (!mongoUrl) {
     console.error("Missing MONGO_URL environment variable");
