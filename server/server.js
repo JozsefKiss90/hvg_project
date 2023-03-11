@@ -27,13 +27,17 @@ main()
 app.use('/api/posts', PostRoute)
 app.use('/api/audio', AudioRoute)
 
-const configuration =new Configuration({
-    apiKey: process.env.OPEN_AI_KEY
-})
-const openai = new OpenAIApi(configuration)
-
 
 const port = process.env.PORT || '5000'
+
+const path = require("path");
+
+// Step 1:
+app.use(express.static(path.resolve(__dirname, "../client/build")));
+// Step 2:
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
 
 app.listen(port, ()=>{console.log(`server started on ${port}`)})
 
