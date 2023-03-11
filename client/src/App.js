@@ -8,16 +8,18 @@ function App() {
 
   const [postContents, setPostContents] = useState('');
   const [audios, setAudios] = useState();
-  
+  const apiAudioEndpoint = process.env.NODE_ENV === 'production' ? 'https://hvg-app.herokuapp.com/api/audio' : 'http://localhost:5000/api/audio';
+  const apiPostEndpoint = process.env.NODE_ENV === 'production' ? 'https://hvg-app.herokuapp.com/api/posts' : 'http://localhost:5000/api/posts';
+
   useEffect(() => {
-    fetch(`http://localhost:5000/api/posts`)
+    fetch(apiPostEndpoint)
       .then(response => response.json())
       .then(data => setPostContents(data))
       .catch(error => console.error(error));
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/audio`)
+    fetch(apiAudioEndpoint)
       .then(response => response.json())
       .then(data => setAudios(data))
       .catch(error => console.error(error));
