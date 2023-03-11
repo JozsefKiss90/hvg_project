@@ -9,6 +9,7 @@ import {
 } from "react-router-dom"; 
 import BlogPost from './BlogPost';
 import BlogPost2 from './BlogPost2';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
