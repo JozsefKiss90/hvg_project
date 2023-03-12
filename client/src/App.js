@@ -11,7 +11,7 @@ function App() {
 
   const apiAudioEndpoint = process.env.REACT_APP_NODE_ENV === 'production' ? 'https://hvg-app.herokuapp.com/api/audio' : 'http://localhost:5000/api/audio';
   const apiPostEndpoint = process.env.REACT_APP_NODE_ENV === 'production' ? 'https://hvg-app.herokuapp.com/api/posts' : 'http://localhost:5000/api/posts';
-
+  console.log(apiPostEndpoint)
   useEffect(() => {
     fetch(apiPostEndpoint)
       .then(response => response.json())
