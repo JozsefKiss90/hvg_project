@@ -28,7 +28,8 @@ app.use('/api/posts', PostRoute)
 app.use('/api/audio', AudioRoute)
 
 
-const port = process.env.PORT || '5000'
+console.log(process.env.NODE_ENV);
+const port = process.env.PORT || '5000' 
 
 const path = require("path");
 
