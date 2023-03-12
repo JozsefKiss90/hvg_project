@@ -14,14 +14,14 @@ function App() {
   console.log(apiPostEndpoint)
   
   useEffect(() => { 
-    fetch('https://hvg-app.herokuapp.com/api/posts')
+    fetch('/api/posts')
       .then(response => response.json())
       .then(data => setPostContents(data))
       .catch(error => console.error(error));
   }, []);
 
   useEffect(() => {
-    fetch('https://hvg-app.herokuapp.com/api/audio')
+    fetch('/api/audio')
       .then(response => response.json())
       .then(data => setAudios(data))
       .catch(error => console.error(error));
