@@ -9,19 +9,19 @@ function App() {
   const [postContents, setPostContents] = useState('');
   const [audios, setAudios] = useState();
  
-  const apiAudioEndpoint = process.env.REACT_APP_NODE_ENV === 'production' ? 'https://hvg-app.herokuapp.com/api/audio' : 'http://localhost:5000/api/audio';
-  const apiPostEndpoint = process.env.REACT_APP_NODE_ENV === 'production' ? 'https://hvg-app.herokuapp.com/api/posts' : 'http://localhost:5000/api/posts';
+  const apiAudioEndpoint = process.env.REACT_APP_NODE_ENV == 'production' ? 'https://hvg-app.herokuapp.com/api/audio' : 'http://localhost:5000/api/audio';
+  const apiPostEndpoint = process.env.REACT_APP_NODE_ENV == 'production' ? 'https://hvg-app.herokuapp.com/api/posts' : 'http://localhost:5000/api/posts';
   console.log(apiPostEndpoint)
   
   useEffect(() => { 
-    fetch(apiPostEndpoint)
+    fetch('https://hvg-app.herokuapp.com/api/posts')
       .then(response => response.json())
       .then(data => setPostContents(data))
       .catch(error => console.error(error));
   }, [apiPostEndpoint]);
 
   useEffect(() => {
-    fetch(apiAudioEndpoint)
+    fetch('https://hvg-app.herokuapp.com/api/audio')
       .then(response => response.json())
       .then(data => setAudios(data))
       .catch(error => console.error(error));
