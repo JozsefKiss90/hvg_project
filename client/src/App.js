@@ -18,14 +18,14 @@ function App() {
       .then(response => response.json())
       .then(data => setPostContents(data))
       .catch(error => console.error(error));
-  }, [apiPostEndpoint]);
+  }, []);
 
   useEffect(() => {
     fetch('https://hvg-app.herokuapp.com/api/audio')
       .then(response => response.json())
       .then(data => setAudios(data))
       .catch(error => console.error(error));
-  }, [apiAudioEndpoint]);
+  }, []);
 
 
   return (
