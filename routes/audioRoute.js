@@ -3,9 +3,13 @@ const router = express.Router()
 
 const AudioModel = require('../models/audio.model')
 
-router.get('/', (req,res)=>{
-  AudioModel.find()
-  .then(posts => res.json(posts)) 
+router.get('/', async (req,res)=>{
+  try {
+    await AudioModel.find()
+    .then(posts => res.json(posts)) 
+  } catch (error) {
+    
+  }
 })
 
 

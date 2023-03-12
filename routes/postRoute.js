@@ -3,9 +3,13 @@ const router = express.Router()
 
 const Posts = require('../models/posts.model')
 
-router.get('/', (req,res)=>{
-    Posts.find()
-    .then(posts => res.json(posts)) 
+router.get('/', async (req,res)=>{
+   try {
+    await Posts.find()
+     .then(posts => res.json(posts)) 
+   } catch (error) {
+    
+   }
  })
 
 router.post('/', async (req,res)=>{

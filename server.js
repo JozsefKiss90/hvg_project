@@ -18,7 +18,11 @@ const connectToDb = async (dbName) => {
 } 
  
 async function main() { 
-    await connectToDb('summaries')
+    try {
+      await connectToDb('summaries')
+    } catch (error) {
+      console.error(error.message);
+    }
   }
  
 main()
