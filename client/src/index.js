@@ -8,21 +8,17 @@ import {
   Route, 
 } from "react-router-dom"; 
 import BlogPost from './BlogPost';
-import BlogPost2 from './BlogPost2';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+ 
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/post" element={<BlogPost />} />
-      <Route path="/post2" element={<BlogPost2 />} />
+      <Route path="/post/:id" element={<BlogPost />} />
     </Routes>
   </BrowserRouter>
-</React.StrictMode>
+
 ); 
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 

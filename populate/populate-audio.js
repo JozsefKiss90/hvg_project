@@ -11,13 +11,11 @@ const client = new TextToSpeechClient({
   keyFilename: path.join(__dirname, '../service_account.json'),
 });
 
-// Connect to the MongoDB database
 mongoose
   .connect(process.env.MONGO_ATLAS_URL)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error(err));
 
-// Synthesize speech from text and save audio file to database
 const synthesizeAndSaveAudio = async (item) => {
   try {
     const request = {
@@ -39,7 +37,6 @@ const synthesizeAndSaveAudio = async (item) => {
   }
 };
 
-// Find summaries from database and synthesize speech for each summary
 SummaryModel.find({})
   .then(async (items) => {
     for (const item of items) {
