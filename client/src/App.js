@@ -11,8 +11,7 @@ function App() {
  
   const apiAudioEndpoint = process.env.REACT_APP_NODE_ENV === 'production' ? '/api/audio' : 'http://localhost:5000/api/audio';
   const apiPostEndpoint = process.env.REACT_APP_NODE_ENV === 'production' ? '/api/posts' : 'http://localhost:5000/api/posts';
-  
-  //const imageUrls = ["/war.jpg", "/glacier.jpg"]
+
   
   useEffect(() => { 
     fetch('/api/posts')
@@ -47,7 +46,7 @@ function App() {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui vitae dolores sint vel nam. Amet dolor similique, repudiandae fugit aperiam alias consectetur eligendi aliquid quasi dignissimos sit, sunt nesciunt nostrum?</p>
                 </article>
               })
-             : 'loading'
+             : <div className="spinner"></div>
           } 
       </main>
       <footer>
