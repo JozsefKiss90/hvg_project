@@ -5,25 +5,26 @@ function Navbar() {
   return (
    <div>
      <header>
-      <h1>CBB News</h1>
+     <Link  to="/" > 
+        <h1 className='logo'>hvg-app</h1>
+     </Link>
+      <nav>
+      </nav>
+    </header>
+    <header className='header2'>
       <nav>
         <ul>
-          <li>
-            <Link to="/">Home </Link>
-          </li>
-          <li><a href="/world">World</a></li>
-          <li><a href="/uk">UK</a></li>
-          <li><a href="/business">Business</a></li>
-          <li><a href="/politics">Politics</a></li>
-          <li><a href="/health">Health</a></li>
-          <li><a href="/education">Education</a></li>
-          <li><a href="/science">Science</a></li>
-          <li><a href="/technology">Technology</a></li>
-          <li><a href="/entertainment">Entertainment</a></li>
-          <li><a href="/sports">Sports</a></li>
-        </ul>
-        <ul>
-          <li><a href="/search">Search</a></li>
+          <li><Link to="/"> Friss hírek </Link></li>
+          <li><Link to="/">Itthon</Link></li>
+          <li><Link to="/">Világ</Link></li>
+          <li><Link to="/">Gazdaság</Link></li>
+          <li><Link to="/">Tech</Link></li>
+          <li><Link to="/">Vélemény</Link></li>
+          <li><Link to="/">Sport</Link></li>
+          <li><Link to="/">Autó</Link></li>
+          <li><Link to="/">Vállakozás</Link></li>
+          <li><Link to="/">Kult</Link></li>
+          <li><Link to="/">Élet+Stlus</Link></li>
         </ul>
       </nav>
     </header>

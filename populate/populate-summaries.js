@@ -1,8 +1,8 @@
 const path = require('path')
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 const mongoose = require("mongoose");
-const titles = require("./titles.json");
-const blogs = require("./blogs.json");
+const titles = require("./titles-hun.json");
+const blogs = require("./blogs-hun.json");
 const SummaryModel = require("../models/summaries.model");
 const {Configuration, OpenAIApi} = require('openai')
 const mongoUrl = process.env.MONGO_ATLAS_URL;
@@ -14,11 +14,11 @@ if (!mongoUrl) {
 
 const configuration =new Configuration({
     apiKey: process.env.OPEN_AI_KEY
-})
+}) 
 const openai = new OpenAIApi(configuration)
 
 const runPrompt = async (text) =>{
-    const prompt = `give back a short summary of the following text: ${text}`
+    const prompt = `Foglald össze röviden ezt a szöveget: ${text}`
     const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: prompt,

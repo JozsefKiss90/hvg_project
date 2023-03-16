@@ -1,26 +1,37 @@
-/* Set the background color to match the BBC News page */
+
 body {
   background-color: #f5f5f5;
 }
 
-/* Add a max-width to the main content area */
 main {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Style the header */
 header {
-  background-color: #b80006;
+  background-color: #de5602;
   color: #fff;
-  padding: 20px;
+  padding: 15px;
+  margin: 0 40px 0 40px;
 }
 
 header h1 {
   margin: 0;
   font-size: 32px;
 }
+
+.header2 {
+  background-color: rgb(255, 255, 255);
+  padding: 5px 0 5px 20px;
+  margin: 0 40px 0 40px;
+  margin-bottom: 20px;
+}
+
+a h2 {
+ color: #333;
+}
+
 
 header nav {
   display: flex;
@@ -44,16 +55,15 @@ header nav li:last-child {
 }
 
 header nav a {
-  color: #fff;
+  color: #525252;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 14px;
 }
 
-header nav a:hover {
-  text-decoration: underline;
+header nav a:active {
+  text-decoration: none;
 }
 
-/* Style the main content area */
 article {
   background-color: #fff;
   padding: 20px;
@@ -64,6 +74,7 @@ article h2 {
   font-size: 24px;
   margin: 0;
   margin-bottom: 10px;
+  text-decoration: none;
 }
 
 article p {
@@ -79,14 +90,37 @@ article img {
   margin-bottom: 20px;
 }
 
-/* Style the footer */
 footer {
-  background-color: #ccc;
+  background-color: #ffffff;
   color: #333;
   padding: 20px;
 }
 
 footer p {
-  margin: 0;
+  padding: 5px;
+  margin: 0 40px 0 40px;
   font-size: 14px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+.button-icon {
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  cursor: pointer;
+ }
+
+ .blogPost {
+  margin: 0 40px 0 40px;
+ }
+
+.logo {
+  color: white;
 }

@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
-const titles = require("./titles.json");
-const blogs = require("./blogs.json");
+const titles = require("./titles-hun.json");
+const blogs = require("./blogs-hun.json");
 const PostModel = require("../models/posts.model");
 const mongoUrl = process.env.MONGO_ATLAS_URL;
 

@@ -5,14 +5,12 @@ const SummaryModel = require('../models/summaries.model');
 const AudioModel = require('../models/audio.model');
 const { TextToSpeechClient } = require('@google-cloud/text-to-speech');
 
-// Set up the Text-to-Speech client
 const client = new TextToSpeechClient({
   projectId: process.env.PROJECT_ID,
   keyFilename: path.join(__dirname, '../service_account.json'),
 });
 
-mongoose
-  .connect(process.env.MONGO_ATLAS_URL)
+mongoose.connect(process.env.MONGO_ATLAS_URL)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error(err));
 
@@ -20,7 +18,7 @@ const synthesizeAndSaveAudio = async (item) => {
   try {
     const request = {
       input: { text: item.summary },
-      voice: { languageCode: 'en-US', ssmlGender: 'NEUTRAL' },
+      voice: { languageCode: 'hu-HU', ssmlGender: 'FEMALE' },
       audioConfig: { audioEncoding: 'MP3' },
     };
 
@@ -44,3 +42,4 @@ SummaryModel.find({})
     }
   })
   .catch((err) => console.error(err));
+  mongoose.disconnect();
