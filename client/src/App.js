@@ -15,14 +15,14 @@ function App() {
   //const imageUrls = ["/war.jpg", "/glacier.jpg"]
   
   useEffect(() => { 
-    fetch(apiPostEndpoint)
+    fetch('/api/posts')
       .then(response => response.json())
       .then(data => setPostContents(data))
       .catch(error => console.error(error));
   }, [apiPostEndpoint]);
 
   useEffect(() => {
-    fetch(apiAudioEndpoint)
+    fetch('/api/audio')
       .then(response => response.json())
       .then(data => setAudios(data))
       .catch(error => console.error(error));
