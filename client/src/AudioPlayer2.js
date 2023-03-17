@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 
-function AudioPlayer({ audioId, imgUrl }) {
+function AudioPlayer2({ audioId}) {
   const [audioUrl, setAudioUrl] = useState('');
   const [playState, setPlayState] = useState(false);
   const [iconUrl, setIconUrl] = useState('/audio.png');
@@ -65,7 +65,6 @@ function AudioPlayer({ audioId, imgUrl }) {
 
   return (
     <div style={containerStyle}>
-        <img src={imgUrl} alt="bg url" style={imageStyle} />
         <div style={playerStyle}>
             <img src={iconUrl} alt="Audio Icon" className="button-icon" onClick={handleAudioClick} />
             <img src="/stop.png" alt="Stop Icon" className="button-icon" onClick={handleRestartClick} />
@@ -75,4 +74,4 @@ function AudioPlayer({ audioId, imgUrl }) {
   );
 }
 
-export default AudioPlayer;
+export default AudioPlayer2;
