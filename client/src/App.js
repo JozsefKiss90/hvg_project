@@ -34,7 +34,8 @@ function App() {
       <main>
           {
             (postContents.length && audios!==undefined) ? 
-            <article>
+          <div style={{display:"flex"}}>
+              <article>
             <Link to={`/post/${1}`} state={{ content : postContents.text, title: postContents.name }}>
               <div>
                 <h2>{postContents[0].name}</h2>
@@ -43,20 +44,17 @@ function App() {
             <AudioPlayer audioId={audios[0]._id} imgUrl={imageUrls[0]}/>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui vitae dolores sint vel nam. Amet dolor similique, repudiandae fugit aperiam alias consectetur eligendi aliquid quasi dignissimos sit, sunt nesciunt nostrum?</p>
           </article>
+          <div className="container">
+            {postContents.slice(1).map(post => (
+              <Link key={post._id} to={`/post/${post._id}`} state={{ content: post.text, title: post.name }}>
+                <h2>{post.name}</h2>
+              </Link>
+            ))} 
+          </div> 
+          </div>
              : <div className="spinner"></div>
           }
-            <div className="container">
-       
-            {postContents.slice(1).map(post => (
-            <Link key={post._id} to={`/post/${post._id}`} state={{ content: post.text, title: post.name }}>
-              <h2>{post.name}</h2>
-            </Link>
-          ))} :
-          <div className='spinner'>
-
-          </div>
-    
-      </div> 
+                    
       </main>
     
 

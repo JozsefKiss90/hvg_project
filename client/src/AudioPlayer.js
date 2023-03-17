@@ -43,7 +43,7 @@ function AudioPlayer({ audioId, imgUrl }) {
   const handleRestartClick = () => {
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
-      setPlayState(false);
+      setPlayState(false); 
       setIconUrl('/audio.png');
     }
   }
