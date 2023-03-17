@@ -50,11 +50,8 @@ function AudioPlayer2({ audioId}) {
 
   const containerStyle = {
     position: 'relative',
-    display: 'inline-block'
-  };
-
-  const imageStyle = {
-    maxWidth: '100%'
+    display: 'inline-block',
+    marginRight: '0',
   };
 
   const playerStyle = {
@@ -64,12 +61,10 @@ function AudioPlayer2({ audioId}) {
   };
 
   return (
-    <div style={containerStyle}>
-        <div style={playerStyle}>
-            <img src={iconUrl} alt="Audio Icon" className="button-icon" onClick={handleAudioClick} />
-            <img src="/stop.png" alt="Stop Icon" className="button-icon" onClick={handleRestartClick} />
-            <audio ref={audioRef} src={audioUrl} />
-        </div>
+    <div>
+        <img src={iconUrl} alt="Audio Icon" className="button-icon" onClick={handleAudioClick} />
+            
+        <audio ref={audioRef} src={audioUrl} />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import './App.css';
 import AudioPlayer from './AudioPlayer'
+import AudioPlayer2 from './AudioPlayer2';
 import Navbar from './Navbar';
 import {Link} from "react-router-dom";
 import React, { useState, useEffect } from 'react';
@@ -45,10 +46,13 @@ function App() {
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui vitae dolores sint vel nam. Amet dolor similique, repudiandae fugit aperiam alias consectetur eligendi aliquid quasi dignissimos sit, sunt nesciunt nostrum?</p>
           </article>
           <div className="container">
-            {postContents.slice(1).map(post => (
-              <Link key={post._id} to={`/post/${post._id}`} state={{ content: post.text, title: post.name }}>
-                <h2>{post.name}</h2>
-              </Link>
+            {postContents.slice(1).map((post,i) => (
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                <Link key={post._id} to={`/post/${post._id}`} state={{ content: post.text, title: post.name }}>
+                  <h2>{post.name}</h2>
+                </Link>
+                <AudioPlayer2 audioId={audios[i + 1]._id} /> 
+            </div>
             ))} 
           </div> 
           </div>
