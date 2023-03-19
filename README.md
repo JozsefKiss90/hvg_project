@@ -4,7 +4,7 @@ Ez a tárhely a HVG Kiadó **_MI mit tud?!_** innovációs ötletpályázatára 
 A pályázat elképzelésének megvalósításán túl fontos szempont volt egy teljes körű, skálázható és megbízható alkalmazás készítése.
 
 Az implementáció a MERN webalkalmazás-fejlesztő keretrendszer segítségével valósult meg: 
-* Az adatok tárolására **M**ongoDB szolgál, ami egy dokumentum orientált adatbázis-kezelő rendszer.
+* Az adatok tárolására a **M**ongoDB szolgál, ami egy dokumentum orientált adatbázis-kezelő rendszer.
 * A backend kód megírása egy Node.js alapú keretrendszer, az **E**xpress.js révén történt.
 * Ez a kliens oldalon a népszerű JavaScript könyvtár, a **R**eact komponenseivel kommunikál. 
 * A **N**ode.js, mivel lehetővé teszi, hogy a szerver oldali kód is JavaScript-ben íródjon, egységes és összehangolt fejlesztési környzezetet biztosít.  
