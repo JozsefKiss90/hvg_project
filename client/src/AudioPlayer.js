@@ -7,10 +7,10 @@ function AudioPlayer({ audioId, imgUrl, linkProps }) {
   const [playState, setPlayState] = useState(false);
   const [iconUrl, setIconUrl] = useState('/audio.png');
   const audioRef = useRef(null);
-  const apiAudioEndpoint = process.env.REACT_APP_NODE_ENV === 'production' ? 'https://hvg-app.herokuapp.com/api/audio' : 'http://localhost:5000/api/audio/';
+  const apiAudioEndpoint = process.env.REACT_APP_NODE_ENV === 'production' ? 'https://hvg-app.herokuapp.com/api/audio/' : 'http://localhost:5000/api/audio/';
 
   useEffect(() => {
-    fetch(`${apiAudioEndpoint}${audioId}`)
+    fetch(`/api/audio/${audioId}`)
       .then(response => response.blob())
       .then(blob => {
         if (blob.size > 0) {
