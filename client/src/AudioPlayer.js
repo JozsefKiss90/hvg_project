@@ -55,7 +55,8 @@ function AudioPlayer({ audioId, imgUrl, linkProps }) {
   };
 
   const imageStyle = {
-    maxWidth: '100%'
+    height: '430px',
+    width: '720px'
   };
 
   const playerStyle = {

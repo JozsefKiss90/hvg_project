@@ -18,12 +18,12 @@ const configuration =new Configuration({
 const openai = new OpenAIApi(configuration)
 
 const runPrompt = async (text) =>{
-    const prompt = `Foglald össze röviden ezt a szöveget: ${text}`
+    const prompt = `Foglald össze röviden ennek a szövegnek a tartalmát (ne használd "a szöveg" vagy "ez a szöveg" stb. kifejezéseket): ${text}`
     const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: prompt,
         max_tokens: 3000,
-        temperature: 0,
+        temperature: 0.7,
     })
     //console.log(response.data.choices[0].text)
     return response.data.choices[0].text;
