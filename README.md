@@ -9,6 +9,6 @@ Az implementáció a MERN webalkalmazás fejlesztő keretrendszer használata r�
 * Ez a kliens oldalon a népszerű JavaScript könyvtár, a **R**eact komponenseivel kommunikál. 
 * A **N**ode.js, mivel lehetővé teszi, hogy a szerver oldali kód is JavaScript-ben íródjon, egységes és összehangolt fejlesztési környzezetet biztosít.  
 
-Az alkalmazás a cikkösszefoglalók létrehozására az OpenAI API mesterséges intelligencia funkcióit használja, amit a Google Text-to-Speech API révén szintetizál emberi beszéddé. 
+Az alkalmazás a cikkösszefoglalók létrehozására az OpenAI API mesterséges intelligencia funkcióit használja, amit a Google Text-to-Speech API segítségével szintetizál emberi beszéddé. 
 
 A weboldal a https://hvg-app.herokuapp.com URL címen érhető el.
