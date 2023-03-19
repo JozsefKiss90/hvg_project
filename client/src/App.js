@@ -14,14 +14,14 @@ function App() {
 
   
   useEffect(() => { 
-    fetch('/api/posts')
+    fetch(apiPostEndpoint)
       .then(response => response.json())
       .then(data => setPostContents(data))
       .catch(error => console.error(error));
   }, [apiPostEndpoint]);
 
   useEffect(() => {
-    fetch('/api/audio')
+    fetch(apiAudioEndpoint)
       .then(response => response.json())
       .then(data => setAudios(data))
       .catch(error => console.error(error));
@@ -36,13 +36,13 @@ function App() {
           {
             (postContents.length && audios!==undefined) ? 
               postContents.map((post, i) => {
-              return <article>
+              return <article key={i}>
                   <Link to={`/post/${i+1}`} state={{ content : post.text, title: post.name }}>
                     <div>
                       <h2>{post.name}</h2>
                     </div>
                   </Link>
-                  <AudioPlayer audioId={audios[i]._id} imgUrl={imageUrls[i]}/>
+                  <AudioPlayer audioId={audios[i]._id} imgUrl={imageUrls[i]} linkProps={{content : post.text, title: post.name, index: i}}/>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui vitae dolores sint vel nam. Amet dolor similique, repudiandae fugit aperiam alias consectetur eligendi aliquid quasi dignissimos sit, sunt nesciunt nostrum?</p>
                 </article>
               })

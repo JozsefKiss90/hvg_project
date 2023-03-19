@@ -5,7 +5,7 @@ const titles = require("./titles-hun.json");
 const blogs = require("./blogs-hun.json");
 const PostModel = require("../models/posts.model");
 const mongoUrl = process.env.MONGO_ATLAS_URL;
-
+ 
 if (!mongoUrl) {
     console.error("Missing MONGO_URL environment variable");
     process.exit(1); 

@@ -9,7 +9,7 @@ function BlogPost() {
   if (!content) {
     return null;
   } 
-
+  console.log(title)
   const sentences = content.match(/[^.!?]+[.!?]+['"]?\s*/g);
   const pairedSentences = [];
 

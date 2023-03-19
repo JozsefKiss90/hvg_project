@@ -11,7 +11,18 @@ const client = new TextToSpeechClient({
 });
 
 mongoose.connect(process.env.MONGO_ATLAS_URL)
-  .then(() => console.log('MongoDB connected'))
+  .then(async () => {
+    console.log('MongoDB connected');
+    await AudioModel.deleteMany();
+    await SummaryModel.find({})
+      .then(async (items) => {
+        for (const item of items) {
+          await synthesizeAndSaveAudio(item);
+        }
+      })
+      .catch((err) => console.error(err));
+    mongoose.disconnect();
+  })
   .catch((err) => console.error(err));
 
 const synthesizeAndSaveAudio = async (item) => {
@@ -30,16 +41,7 @@ const synthesizeAndSaveAudio = async (item) => {
 
     await audio.save();
     console.log('Audio file saved to MongoDB');
-  } catch (err) {
+  } catch (err) { 
     console.error(err);
   }
 };
-
-SummaryModel.find({})
-  .then(async (items) => {
-    for (const item of items) {
-      await synthesizeAndSaveAudio(item);
-    }
-  })
-  .catch((err) => console.error(err));
-  mongoose.disconnect();

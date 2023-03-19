@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
+import { Link } from 'react-router-dom';
 
-function AudioPlayer({ audioId, imgUrl }) {
+function AudioPlayer({ audioId, imgUrl, linkProps }) {
   const [audioUrl, setAudioUrl] = useState('');
   const [playState, setPlayState] = useState(false);
   const [iconUrl, setIconUrl] = useState('/audio.png');
@@ -9,7 +10,7 @@ function AudioPlayer({ audioId, imgUrl }) {
   const apiAudioEndpoint = process.env.REACT_APP_NODE_ENV === 'production' ? 'https://hvg-app.herokuapp.com/api/audio' : 'http://localhost:5000/api/audio/';
 
   useEffect(() => {
-    fetch(`/api/audio/${audioId}`)
+    fetch(`${apiAudioEndpoint}${audioId}`)
       .then(response => response.blob())
       .then(blob => {
         if (blob.size > 0) {
@@ -65,7 +66,9 @@ function AudioPlayer({ audioId, imgUrl }) {
 
   return (
     <div style={containerStyle}>
-        <img src={imgUrl} alt="bg url" style={imageStyle} />
+        <Link to={`/post/${linkProps.index}`} state={{ content : linkProps.content, title: linkProps.title }}>
+          <img src={imgUrl} alt="bg url" style={imageStyle} />
+        </Link>
         <div style={playerStyle}>
             <img src={iconUrl} alt="Audio Icon" className="button-icon" onClick={handleAudioClick} />
             <img src="/stop.png" alt="Stop Icon" className="button-icon" onClick={handleRestartClick} />
